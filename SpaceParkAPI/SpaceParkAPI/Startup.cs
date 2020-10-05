@@ -19,7 +19,7 @@ namespace SpaceParkAPI
             Log.Logger = new LoggerConfiguration()
             .WriteTo.MSSqlServer
             (
-                connectionString: Configuration.GetConnectionString("DefaultConnection"),
+                connectionString: "Server=tcp:swdbserver.database.windows.net,1433;Initial Catalog=swDatabase;Persist Security Info=False;User ID=swadmin;Password=starwarsadmin1234!!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
                 sinkOptions: new SinkOptions { TableName = "EventLogs", AutoCreateSqlTable = true }
             )
             .WriteTo.Debug()
