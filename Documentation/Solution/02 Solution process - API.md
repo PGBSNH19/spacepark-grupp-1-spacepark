@@ -66,11 +66,11 @@ I koden sedan använda vi oss av dessa rader för implementera allt:
 
 *Startup konfigurering*
 
-![SerilogStartup](C:\Users\hampe\Repos\Skola\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\SerilogStartup.PNG)
+![SerilogStartup](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/tree/master/Documentation/Solution/img/SerilogStartup.PNG)
 
 *Program konfigurering*
 
-![SerilogProgram](C:\Users\hampe\Repos\Skola\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\SerilogProgram.PNG)
+![SerilogProgram](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/tree/master/Documentation/Solution/img/SerilogProgram.PNG)
 
 
 
@@ -78,7 +78,7 @@ Loggern injinceras sedan i repositorysarna via dependency injection. I våran l�
 
 *Exempel grundrepository*
 
-![LoggerRepo](C:\Users\hampe\Repos\Skola\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\LoggerRepo.PNG)
+![LoggerRepo](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/tree/master/Documentation/Solution/img/LoggerRepo.PNG)
 
 
 
