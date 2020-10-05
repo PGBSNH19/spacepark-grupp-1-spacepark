@@ -2,8 +2,6 @@
 using Microsoft.Extensions.Logging;
 using SpaceParkAPI.Db_Context;
 using SpaceParkAPI.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,9 +15,7 @@ namespace SpaceParkAPI.Repos
         private static IQueryable<ParkingSpaceModel> ParkingSpaceQuery(IQueryable<ParkingSpaceModel> query)
         {
             return query;
-        }
-
-      
+        }      
 
         public async Task<ParkingSpaceModel> GetParkingSpaceById(int id)
         {

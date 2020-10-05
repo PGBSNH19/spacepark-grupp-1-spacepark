@@ -38,6 +38,50 @@ Nu fungerade det äntligen med externt för samtliga medlemmar. Men, så fort vi
 
 ![](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/blob/master/Documentation/Solution/img/connectionstring_real_implementation.PNG)
 
+
+
+## Loggning
+
+Vi började med att endast använda microsofts egna loggningsverktyg och logga till debugkonsollen, vilket fungerade helt ok och gjorde att vi kunde se i utvecklingsmiljön vad som händer vid varje anrop. I en skarpare version av en applikation lämnar det dock en del att önska. 
+
+På grund av att inte alla hade tillgång till azure-kontot och på grund av tidsbrist så valde vi bort lösningen att använda Azure Application Insights. Istället valde vi att använda oss av serilog och logga direkt in i vår databas men även till debugkonsollen. Det kan ifrågasättas hur klokt detta är men följande anledningar stod bakom vårat val:
+
+1. Vi loggar inget som är känsligt i och med denna applikation.
+2. För att vi ville testa något nytt.
+
+En nackdel dock med att logga till en databas är att det inte ger stöd för strukturerad logging, vilket hade varit fint att ha i en verklig applikation för att på ett enkelt sätt kunna processa och dra slutsatser från den data som loggas.
+
+För att möjliggöra logging med serilog som vi tänkt behövdes 4 olika nuget-paket:
+
+- Serilog
+- Serilog.AspNetCore
+- Serilog.Sinks.Debug
+- Serilogs.Sink.MSSqlServer
+
+
+
+De två första paketen används för att få in serilog i en standard ASP.Net Core applikation och de två andra är vad man kallar för "sinks". Ett sink är en benämning för vart man vill att outputen för ens logg ska hamna.
+
+I koden sedan använda vi oss av dessa rader för implementera allt:
+
+*Startup konfigurering*
+
+![SerilogStartup](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/tree/master/Documentation/Solution/img/SerilogStartup.PNG)
+
+*Program konfigurering*
+
+![SerilogProgram](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/tree/master/Documentation/Solution/img/SerilogProgram.PNG)
+
+
+
+Loggern injinceras sedan i repositorysarna via dependency injection. I våran lösning har vi valt att lägga ett repositorys grundfunktionalitet i en basklass som sedan alla andra repositorys ärver av.
+
+*Exempel grundrepository*
+
+![LoggerRepo](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/tree/master/Documentation/Solution/img/LoggerRepo.PNG)
+
+
+
 ## Tester
 
 Eftersom vi visste att tiden kunde bli knapp och vi samtidigt ville ha så mycket tid som möjligt för Azure Devops och  Azure Portal gjorde vi endast ett fåtal tester för att få med dem i vår pipeline. Vi använde oss av Xunit samt Mock(Moq nuget). Testerna skedde främst för våra Controllers där vi bland annat testade att vi fick tillbaka svarskod *Status200OK*, och objektet vi eftersökte.
