@@ -2,6 +2,9 @@
 
 Dokumentation om processer, flowcharts mm finns i mappen Documentation
 
+Länk till backend på Azure: https://swbackend.azurewebsites.net/api/v1.0/
+
+
 ## Solution Process
 
 [01 Solution process - Planering och förberedelser](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/blob/master/Documentation/Solution/01%20Solution%20process%20-%20Planering%20och%20f%C3%B6rberedelser.md)
